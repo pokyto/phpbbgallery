@@ -21,6 +21,7 @@ class core_search_test extends core_base
 {
 	public function setUp()
 	{
+		global $auth;
 		parent::setUp();
 		$this->gallery_cache = new \phpbbgallery\core\cache(
 			$this->cache,
@@ -142,6 +143,11 @@ class core_search_test extends core_base
 			$this->file,
 			'phpbb_gallery_image'
 		);
+
+			
+		$this->auth->method('get_acl')
+			->willReturn(true);
+		$auth = $this->auth;
 
 		// Let's build Search
 		$this->gallery_search = new \phpbbgallery\core\search(
