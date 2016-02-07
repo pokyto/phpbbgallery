@@ -62,6 +62,7 @@ class release_1_2_0_create_filesystem extends \phpbb\db\migration\migration
 		$phpbbgallery_import_file = $phpbb_root_path . 'files/phpbbgallery/import';
 
 		// Clean dirs
+		$this->recursiveRemoveDirectory($phpbbgallery_import_file);
 		$this->recursiveRemoveDirectory($phpbbgallery_core_file_mini);
 		$this->recursiveRemoveDirectory($phpbbgallery_core_file_medium);
 		$this->recursiveRemoveDirectory($phpbbgallery_core_file_source);
